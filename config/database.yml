@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: password
+  host: localhost
+
+development:
+  <<: *default
+  database: imageblur_development
+
+test:
+  <<: *default
+  database: imageblur_test
+
+production:
+  <<: *default
+  database: imageblur_production
+  # username: imageblur
+  # password: <%= ENV['IMAGEBLUR_DATABASE_PASSWORD'] %>
